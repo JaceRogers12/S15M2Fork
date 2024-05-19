@@ -29,11 +29,10 @@ function find() {
 }
 
 function findBy(filter) {
-  console.log("running findBy", {filter});
   const users = db("users")
   .join("roles", "roles.role_id", "users.role_id")
   .select("user_id", "username", "password", "role_name")
-  .where({filter})
+  .where(filter)
 return users;
   /**
     You will need to join two tables.
